@@ -1,0 +1,32 @@
+
+
+main{
+    display: flex;
+    flex-direction: row;
+}
+
+.left{
+    width: 30vw;
+}
+
+.edit{
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit button{
+    width: 60%;
+    padding: 5%;
+    margin: 8%;
+    background-color: #F5F5F5;
+    border: none;
+}
+
+.edit button:hover{
+    background-color: #EEECEC;
+}
+
+.edit button:active{
+    border-radius: 30vw;
+}
