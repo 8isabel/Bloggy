@@ -1,2 +1,1 @@
 # Bloggy
-isa is lesbi
