@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/add.css">
+<<<<<<< HEAD
+=======
     <script src="scripts/add.js" defer></script>
     <link rel="stylesheet" href="styles/index.css">
+>>>>>>> e9f3971584ed4cd6f099bc2cbc57fbfd37f4475d
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    <script src="scripts/add.js" defer></script>
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/index.css">
+<<<<<<< HEAD
+    <script src="scripts/add.js" defer></script>
+    <script src="scripts/login.js" defer></script>
+=======
 
+>>>>>>> e9f3971584ed4cd6f099bc2cbc57fbfd37f4475d
     <title>Bloggy</title>
 </head>
 <body>
@@ -20,7 +26,7 @@
         <h1>Bloggy</h1>
         <a id="home" href="index.html">Home</a>
         <a id="create" href="add.html">+</a>
-        <a id="login" href="login.html">Login</a>
+        <button type="button" id="login">Login</button>
     </header>
     <main>
         <div class="left">
@@ -52,6 +58,20 @@
             </div>
         </div>
     </main>
+
+    <div id="loginModal" class="login-modal" aria-hidden="true">
+        <div class="login-box" role="dialog" aria-labelledby="loginTitle">
+            <button type="button" class="login-close" id="loginClose" aria-label="Close">&times;</button>
+            <h2 id="loginTitle">Login</h2>
+            <form id="loginForm">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" required>
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
     <!-- <button id="post">Post</button> -->
 </body>
 </html>

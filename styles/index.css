@@ -32,7 +32,8 @@ header {
 
 
 
-header a {
+header a,
+header #login {
     background-color: 	#263D2C;
     color: #e9e9e9;
     text-decoration: none;
@@ -42,14 +43,91 @@ header a {
     transition: all ease 0.2s;
 }
 
-header a:hover {
+header a:hover,
+header #login:hover {
     background-color: #1C3022;
 }
 
-#login {
+header #login {
     display: flex;
-    justify-self: flex-end;
     margin-left: auto;
+    cursor: pointer;
+    border: none;
+    font: inherit;
+}
+
+.login-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(31, 41, 34, 0.45);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-modal.open {
+    display: flex;
+}
+
+.login-box {
+    background: #e9e9e9;
+    color: #1F2922;
+    font-family: 'Oswald', sans-serif;
+    padding: 28px 32px;
+    border-radius: 10px;
+    width: min(320px, 90vw);
+    box-shadow: 0 12px 24px rgba(31, 41, 34, 0.25);
+    position: relative;
+}
+
+.login-box h2 {
+    margin: 0 0 18px;
+    font-weight: 500;
+}
+
+.login-box label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+}
+
+.login-box input[type="email"],
+.login-box input[type="password"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 14px;
+    border: 0;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.login-box button[type="submit"] {
+    width: 100%;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 7px;
+    background: #263D2C;
+    color: #e9e9e9;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.login-box button[type="submit"]:hover {
+    background: #1C3022;
+}
+
+.login-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #1F2922;
+    cursor: pointer;
 }
 
 #main {
@@ -125,7 +203,44 @@ header a:hover {
     border-radius: 10px;
     width: 40vw;
     padding: 10px;
-
     margin-left: auto;
+    margin: 10px;
+}
 
+.blog-post-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+    box-shadow: 8px 0 12px -4px rgba(31, 41, 34, 0.2);
+
+}
+
+.blog-foto {
+    aspect-ratio: 1/1.1;
+    width: 30%;
+    margin-right: 20px;
+}
+
+.blog-post-right {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 10px;
+    position: relative;
+    min-height: 150px;
+}
+
+.blog-post-right p {
+    margin: 0;
+    text-align: left;
+}
+
+.blog-post-right button {
+    margin-top: auto;
+    align-self: flex-end;
+    background-color: #7f9084;
+    border: 0px;
+    border-radius: 8px;
+    font-size: 16px;
 }
