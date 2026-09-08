@@ -1,21 +1,22 @@
-
-
-main{
+main {
     display: flex;
-    flex-direction: row;
+    min-height: calc(100vh - 70px);
 }
 
-.left{
-    width: 30vw;
+.left {
+    width: 25%;
+    border-right: 1px solid black;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.edit{
-    height: 60vh;
+.edit {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.edit button{
+.edit button {
     width: 60%;
     padding: 5%;
     margin: 8%;
@@ -23,18 +24,28 @@ main{
     border: none;
 }
 
-.edit button:hover{
+.edit button:hover {
     background-color: #EEECEC;
 }
 
-.edit button:active{
+.edit button:active,
+.active {
     border-radius: 30vw;
 }
 
-.active{
-    border-radius: 30vw;
-}
-
-.hidden{
+.hidden {
     display: none;
+}
+
+.blog {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.right {
+    width: 100%;
 }
