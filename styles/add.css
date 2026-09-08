@@ -1,3 +1,10 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    font-family: 'Oswald', sans-serif;
+}  
+
 main {
     display: flex;
     min-height: calc(100vh - 70px);
@@ -5,7 +12,7 @@ main {
 }
 
 .left {
-    width: 25%;
+    width: 15%;
     padding: 20px;
     box-sizing: border-box;
     background-color: #DCE6DE;
@@ -20,25 +27,34 @@ main {
 }
 
 .edit button {
-    width: 60%;
-    padding: 5%;
-    margin: 8%;
-    background-color: #789B81;
-    border: none;
-    border-radius: 7px;
-    color: #F3F5F3;
-    font-size: 1.2rem;
+    width: 70%;
+    padding: 14px 10px;
+    margin: 6%;
+    background-color: #ffffff;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    color: #495a45;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(31, 41, 34, 0.15);
     transition: all 0.2s ease;
 }
 
 .edit button:hover {
-    background-color: #668A70;
+    background-color: #f8faf8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(31, 41, 34, 0.2);
 }
 
 .edit button:active,
 .edit button.active {
-    background-color: #263D2C;
-    border-radius: 30vw;
+    background-color: #859789;
+    color: white;
+    border-radius: 30px;
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(31, 41, 34, 0.15);
 }
 
 .hidden {
