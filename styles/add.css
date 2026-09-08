@@ -1,13 +1,16 @@
 main {
     display: flex;
     min-height: calc(100vh - 70px);
+    background-color: #F3F5F3;
 }
 
 .left {
     width: 25%;
-    border-right: 1px solid black;
     padding: 20px;
     box-sizing: border-box;
+    background-color: #DCE6DE;
+    box-shadow: 4px 0 10px rgba(31, 41, 34, 0.18);
+    z-index: 1;
 }
 
 .edit {
@@ -20,16 +23,21 @@ main {
     width: 60%;
     padding: 5%;
     margin: 8%;
-    background-color: #F5F5F5;
+    background-color: #789B81;
     border: none;
+    border-radius: 7px;
+    color: #F3F5F3;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
 }
 
 .edit button:hover {
-    background-color: #EEECEC;
+    background-color: #668A70;
 }
 
 .edit button:active,
-.active {
+.edit button.active {
+    background-color: #263D2C;
     border-radius: 30vw;
 }
 
@@ -44,6 +52,7 @@ main {
     align-items: flex-start;
     padding: 20px;
     box-sizing: border-box;
+    background-color: #F3F5F3;
 }
 
 .right {
