@@ -7,9 +7,18 @@ header {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    width: 100vw;
+    border-bottom: 1px solid black;
+}
+
+header a {
+    background-color: rgb(205, 205, 205);
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 30px;
+    border-radius: 7px;
 }
 
 #login {
-    display: flex;
-    justify-self: flex-end;
+    margin-left: auto;
 }
