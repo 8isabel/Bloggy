@@ -109,7 +109,44 @@ header a:hover {
     border-radius: 10px;
     width: 40vw;
     padding: 10px;
-
     margin-left: auto;
+    margin: 10px;
+}
 
+.blog-post-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+    box-shadow: 8px 0 12px -4px rgba(31, 41, 34, 0.2);
+
+}
+
+.blog-foto {
+    aspect-ratio: 1/1.1;
+    width: 30%;
+    margin-right: 20px;
+}
+
+.blog-post-right {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 10px;
+    position: relative;
+    min-height: 150px;
+}
+
+.blog-post-right p {
+    margin: 0;
+    text-align: left;
+}
+
+.blog-post-right button {
+    margin-top: auto;
+    align-self: flex-end;
+    background-color: #7f9084;
+    border: 0px;
+    border-radius: 8px;
+    font-size: 16px;
 }
