@@ -1,6 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
+    overflow-x: hidden;
 }
+
 
 header {
     display: flex;
@@ -12,12 +18,13 @@ header {
     background-color: rgb(108, 148, 117);
     color: #1F2922;
     padding-left: 20px;
-    padding-right: 20px;
 
     position: relative;
     z-index: 10;
 
     box-shadow: 0 10px 12px rgba(31, 41, 34, 0.2);
+    position: relative;
+    z-index: 2;
 }
 
 
@@ -130,19 +137,25 @@ header #login {
 #reclame1 {
     width: 30%;
     height: 100%;
-    background-color: red;
+    background-color: #f3f5f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #reclame2 {
     width: 30%;
     height: 100%;
-    background-color: blue;
+    background-color: #f3f5f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #Search {
     width: 100%;
     height: 100%;
-    background-color: green;
+    background-color: white;
 }
 
 #Search {
@@ -187,7 +200,44 @@ header #login {
     border-radius: 10px;
     width: 40vw;
     padding: 10px;
-
     margin-left: auto;
+    margin: 10px;
+}
 
+.blog-post-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+    box-shadow: 8px 0 12px -4px rgba(31, 41, 34, 0.2);
+
+}
+
+.blog-foto {
+    aspect-ratio: 1/1.1;
+    width: 30%;
+    margin-right: 20px;
+}
+
+.blog-post-right {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 10px;
+    position: relative;
+    min-height: 150px;
+}
+
+.blog-post-right p {
+    margin: 0;
+    text-align: left;
+}
+
+.blog-post-right button {
+    margin-top: auto;
+    align-self: flex-end;
+    background-color: #7f9084;
+    border: 0px;
+    border-radius: 8px;
+    font-size: 16px;
 }
