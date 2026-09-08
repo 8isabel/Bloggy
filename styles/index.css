@@ -24,7 +24,7 @@ header {
 
     box-shadow: 0 10px 12px rgba(31, 41, 34, 0.2);
     position: relative;
-    z-index: 2;
+    z-index: 10;
 }
 
 
@@ -43,6 +43,7 @@ header #login {
 header a:hover,
 header #login:hover {
     background-color: #1C3022;
+    transform: translateY(-2px);
 }
 
 header #login {
@@ -163,6 +164,10 @@ header #login {
     display: flex;
     flex-direction: column;
     align-items: center;
+box-shadow: 0 0 24px rgba(31, 41, 34, 0.25);
+
+    position: relative;
+    z-index: 5;
 }
 
 #sorting {
@@ -177,7 +182,7 @@ header #login {
     padding: 10px;
     margin-right: 2%;
     border-radius: 10px;
-    border: 0px;
+    border: 2px solid rgb(108, 148, 117); 
 }
 
 #sort {
@@ -196,12 +201,15 @@ header #login {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: grey;
+    background-color: #f3f5f3;
     border-radius: 10px;
     width: 40vw;
     padding: 10px;
     margin-left: auto;
     margin: 10px;
+    font-family: 'Oswald', sans-serif;
+    box-shadow: 0 12px 24px rgba(31, 41, 34, 0.25);
+    
 }
 
 .blog-post-left {
@@ -236,8 +244,10 @@ header #login {
 .blog-post-right button {
     margin-top: auto;
     align-self: flex-end;
-    background-color: #7f9084;
+    background-color: #263D2C;
     border: 0px;
-    border-radius: 8px;
+    border-radius: 7px;
     font-size: 16px;
+    padding: 10px 15px;
+    color: #f3f5f3;
 }
