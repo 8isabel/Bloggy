@@ -34,9 +34,9 @@ header a:hover {
 }
 
 #login {
-<<<<<<< HEAD
     display: flex;
     justify-self: flex-end;
+    margin-left: auto;
 }
 
 #main {
@@ -106,7 +106,7 @@ header a:hover {
     border-radius: 10px;
     width: 40vw;
     padding: 10px;
-=======
+
     margin-left: auto;
->>>>>>> 1fe258a1d9178ffe25d68571b1990a090a9e9c82
+
 }
