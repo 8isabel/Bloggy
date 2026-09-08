@@ -30,3 +30,11 @@ main{
 .edit button:active{
     border-radius: 30vw;
 }
+
+.active{
+    border-radius: 30vw;
+}
+
+.hidden{
+    display: none;
+}

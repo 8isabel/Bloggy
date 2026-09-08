@@ -4,20 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/add.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <script src="scripts/add.js" defer></script>
+
+    <link rel="stylesheet" href="styles/index.css">
+
     <title>Bloggy</title>
 </head>
 <body>
-    <header>
-
+<header>
+        <h1>Bloggy</h1>
+        <a id="home" href="index.html">Home</a>
+        <a id="create" href="add.html">+</a>
+        <a id="login" href="#">Login</a>
     </header>
     <main>
         <div class="left">
             <div class="edit">
                 <h4>Edit</h4>
-                <button>Landscape</button>
-                <button>Portrait</button>
-                <button>Panorama</button>
-                <button>Boomerang</button>
+                <button id="landscape" class="active">Landscape</button>
+                <button id="portrait">Portrait</button>
+                <button id="panorama">Panorama</button>
+                <button id="boomerang">Boomerang</button>
             </div>
             <div class="settings">
                 <h4>Settings</h4>
@@ -25,7 +35,20 @@
         </div>
         <div class="blog">
             <h6>Blog</h6>
-
+            <div class="right">
+                <div class="landscape">
+                    <h4>Preview 1</h4>
+                </div>
+                <div class="portrait hidden">
+                    <h4>Preview 2</h4>
+                </div>
+                <div class="panorama hidden">
+                    <h4>Preview 3</h4>
+                </div>
+                <div class="boomerang hidden">
+                    <h4>Preview 4</h4>
+                </div>
+            </div>
         </div>
     </main>
 </body>

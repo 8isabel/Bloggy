@@ -7,9 +7,34 @@ header {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    width: 100vw;
+    font-family: 'Oswald', sans-serif;
+    background-color: rgb(108, 148, 117);
+    color: #1F2922;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    box-shadow: 0 10px 12px rgba(31, 41, 34, 0.2);
+}
+
+
+
+header a {
+    background-color: 	#263D2C;
+    color: #e9e9e9;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 30px;
+    border-radius: 7px;
+    transition: all ease 0.2s;
+}
+
+header a:hover {
+    background-color: #1C3022;
 }
 
 #login {
+<<<<<<< HEAD
     display: flex;
     justify-self: flex-end;
 }
@@ -81,4 +106,7 @@ header {
     border-radius: 10px;
     width: 40vw;
     padding: 10px;
+=======
+    margin-left: auto;
+>>>>>>> 1fe258a1d9178ffe25d68571b1990a090a9e9c82
 }
