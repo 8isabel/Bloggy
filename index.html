@@ -76,9 +76,9 @@
         <div class="login-box" role="dialog" aria-labelledby="loginTitle">
             <button type="button" class="login-close" id="loginClose" aria-label="Close">&times;</button>
             <h2 id="loginTitle">Login</h2>
-            <form id="loginForm">
-                <label for="loginEmail">Email</label>
-                <input type="email" id="loginEmail" required>
+            <form id="loginForm" method="post" action="login/login.php">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
                 <label for="loginPassword">Password</label>
                 <input type="password" id="loginPassword" required>
                 <button type="submit">Login</button>
