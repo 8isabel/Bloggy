@@ -1,3 +1,7 @@
+<?php
+session_start();
+require 'db/con.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,11 +80,12 @@
         <div class="login-box" role="dialog" aria-labelledby="loginTitle">
             <button type="button" class="login-close" id="loginClose" aria-label="Close">&times;</button>
             <h2 id="loginTitle">Login</h2>
-            <form id="loginForm">
-                <label for="loginEmail">Email</label>
-                <input type="email" id="loginEmail" required>
-                <label for="loginPassword">Password</label>
-                <input type="password" id="loginPassword" required>
+            <form id="loginForm" method="post" action="login/login.php">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+                <button id="registerButton">Register</button>
                 <button type="submit">Login</button>
             </form>
         </div>
