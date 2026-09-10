@@ -1,3 +1,7 @@
+<?php
+session_start();
+require 'db/con.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
