@@ -21,9 +21,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    form?.addEventListener("submit", (e) => {
-        e.preventDefault();
-        modal.classList.remove("open");
-        form.reset();
-    });
 });

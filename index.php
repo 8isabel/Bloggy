@@ -83,8 +83,8 @@ require 'db/con.php';
             <form id="loginForm" method="post" action="login/login.php">
                 <label for="name">Name</label>
                 <input type="text" id="name" required>
-                <label for="loginPassword">Password</label>
-                <input type="password" id="loginPassword" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
                 <button type="submit">Login</button>
             </form>
         </div>
