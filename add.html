@@ -4,21 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/add.css">
-<<<<<<< HEAD
-=======
     <script src="scripts/add.js" defer></script>
     <link rel="stylesheet" href="styles/index.css">
->>>>>>> e9f3971584ed4cd6f099bc2cbc57fbfd37f4475d
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/index.css">
-<<<<<<< HEAD
     <script src="scripts/add.js" defer></script>
     <script src="scripts/login.js" defer></script>
-=======
-
->>>>>>> e9f3971584ed4cd6f099bc2cbc57fbfd37f4475d
     <title>Bloggy</title>
 </head>
 <body>
@@ -39,24 +32,49 @@
             </div>
             <div class="settings">
                 <h3>Settings</h3>
+                                        <div class="group">
+                    <label for="sort">Sort</label>
+                    <select name="sort" id="sort">
+                    <option value="scary">Scary</option>
+                    <option value="news">News</option>
+                    <option value="fun">Fun</option>
+                </select>
+                <label for="Author">Autheur</label>
+                        <input type="text" name="author">
+                </div>
             </div>
         </div>
         <div class="blog">
             <div class="right">
                 <div class="landscape">
-                    <h4>Preview 1</h4>
+                    <h4>Landscape Preview</h4>
+                    <div class="create-form">
+                        <div class="group"> 
+                        <label for="title">Titel</label>
+                        <input name="title" type="text">
+                        </div>
+                <input type="file">
+                <div class="group">
+                        <label for="text">Tekst</label>
+                        <textarea name="Tekst" type="text"></textarea>
+                    </div>
+                    <input type="file">
+                    </div>
+
+                    
                 </div>
                 <div class="portrait hidden">
-                    <h4>Preview 2</h4>
+                    <h4>Portrait Preview</h4>
                 </div>
                 <div class="panorama hidden">
-                    <h4>Preview 3</h4>
+                    <h4>Panorama Preview</h4>
                 </div>
                 <div class="boomerang hidden">
-                    <h4>Preview 4</h4>
+                    <h4>Boomerang Preview</h4>
                 </div>
             </div>
         </div>
+        <button class="post-btn" id="post">Post</button>
     </main>
 
     <div id="loginModal" class="login-modal" aria-hidden="true">
@@ -71,7 +89,7 @@
                 <button type="submit">Login</button>
             </form>
         </div>
+        
     </div>
-    <!-- <button id="post">Post</button> -->
 </body>
 </html>

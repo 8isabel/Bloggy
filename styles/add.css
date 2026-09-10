@@ -1,24 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
 body {
     margin: 0;
+    padding: 0;
+
+    width: 100%;
+    height: 100%;
+
     overflow: hidden;
-    height: 100vh;
+}
+
+body {
     font-family: 'Oswald', sans-serif;
-}  
+    color: #263D2C;
+}
+
 
 main {
     display: flex;
-    min-height: calc(100vh - 70px);
+
+    width: 100%;
+    height: calc(100vh - 120px);
+
+    min-height: 0;
+
     background-color: #F3F5F3;
 }
 
+
 .left {
     width: 15%;
+    height: 100%;
+
     padding: 20px;
-    box-sizing: border-box;
+
     background-color: #DCE6DE;
+
     box-shadow: 4px 0 10px rgba(31, 41, 34, 0.18);
+
     z-index: 1;
+
+    overflow-y: auto;
+    overflow-x: hidden;
 }
+
 
 .edit {
     display: flex;
@@ -28,49 +56,469 @@ main {
 
 .edit button {
     width: 70%;
+
     padding: 14px 10px;
     margin: 6%;
+
     background-color: #ffffff;
+
     border: 2px solid transparent;
     border-radius: 12px;
+
     color: #495a45;
+
+    font-family: 'Oswald', sans-serif;
     font-size: 1.1rem;
     font-weight: 500;
+
     cursor: pointer;
 
     box-shadow: 0 4px 10px rgba(31, 41, 34, 0.15);
+
     transition: all 0.2s ease;
 }
 
 .edit button:hover {
     background-color: #f8faf8;
+
     transform: translateY(-2px);
+
     box-shadow: 0 6px 14px rgba(31, 41, 34, 0.2);
 }
 
 .edit button:active,
 .edit button.active {
     background-color: #859789;
+
     color: white;
+
     border-radius: 30px;
+
     transform: translateY(1px);
+
     box-shadow: 0 2px 5px rgba(31, 41, 34, 0.15);
+}
+
+
+.settings {
+    margin-top: 35px;
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(73, 90, 69, 0.20);
+}
+
+.settings h3 {
+    margin: 0 0 20px;
+
+    color: #495a45;
+
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.settings .group {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 7px;
+}
+
+.settings label {
+    margin-top: 8px;
+
+    color: #718274;
+
+    font-size: 0.9rem;
+}
+
+.settings input,
+.settings select {
+    width: 100%;
+
+    min-height: 42px;
+
+    padding: 9px 11px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #cbd7cd;
+    border-radius: 8px;
+
+    color: #495a45;
+
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+
+    outline: none;
+
+    transition: all 0.2s ease;
+}
+
+.settings input:hover,
+.settings select:hover {
+    border-color: #aebdaf;
+}
+
+.settings input:focus,
+.settings select:focus {
+    border-color: #859789;
+
+    box-shadow:
+        0 0 0 3px rgba(133, 151, 137, 0.12);
+}
+
+.settings select {
+    cursor: pointer;
 }
 
 .hidden {
     display: none;
 }
 
+
 .blog {
     flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    box-sizing: border-box;
+
+    width: 85%;
+    height: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    padding: 25px 35px;
+
     background-color: #F3F5F3;
+
+    overflow: hidden;
 }
 
 .right {
     width: 100%;
+    height: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.landscape,
+.portrait,
+.panorama,
+.boomerang {
+    width: 100%;
+    max-width: 900px;
+
+    height: calc(100% - 70px);
+
+    margin: 0 auto;
+
+    padding: 45px 55px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e1e7e2;
+    border-radius: 8px;
+
+    box-shadow:
+        0 5px 20px rgba(31, 41, 34, 0.08);
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+.landscape h4,
+.portrait h4,
+.panorama h4,
+.boomerang h4 {
+    margin: 0 0 25px;
+
+    color: #859789;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.create-form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 0;
+}
+
+.group {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.landscape .create-form label {
+    margin-bottom: 6px;
+
+    color: #718274;
+
+    font-size: 13px;
+    font-weight: 400;
+}
+
+
+.landscape input[name="title"] {
+    width: 100%;
+
+    margin: 0 0 25px;
+    padding: 10px 12px;
+
+    background-color: #fbfcfb;
+
+    border: 1px solid #e4ebe5;
+    border-radius: 7px;
+
+    color: #263D2C;
+
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 600;
+
+    line-height: 1.08;
+
+    outline: none;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.landscape input[name="title"]::placeholder {
+    color: #b8c1b9;
+}
+
+.landscape input[name="title"]:hover {
+    border-color: #cfdacf;
+}
+
+.landscape input[name="title"]:focus {
+    background-color: #ffffff;
+
+    border-color: #859789;
+
+    box-shadow:
+        0 0 0 3px rgba(133, 151, 137, 0.10);
+}
+
+
+.landscape input[type="file"] {
+    width: 100%;
+    height: 300px;
+
+    margin: 0 0 30px;
+    padding: 0;
+
+    background-color: #F5F8F5;
+
+    border: 1px dashed #c2cec3;
+    border-radius: 8px;
+
+    color: #718274;
+
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.landscape input[type="file"]:hover {
+    background-color: #F1F5F1;
+
+    border-color: #859789;
+}
+
+.landscape input[type="file"]:focus {
+    border-color: #859789;
+
+    box-shadow:
+        0 0 0 3px rgba(133, 151, 137, 0.10);
+}
+
+.landscape input[type="file"]::file-selector-button {
+    margin-left: 20px;
+
+    padding: 10px 18px;
+
+    background-color: #859789;
+
+    border: none;
+    border-radius: 7px;
+
+    color: white;
+
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.landscape input[type="file"]::file-selector-button:hover {
+    background-color: #718274;
+}
+
+
+.landscape textarea[name="Tekst"] {
+    display: block;
+
+    width: 100%;
+
+    min-height: 300px;
+
+    margin: 0;
+    padding: 14px;
+
+    background-color: #fbfcfb;
+
+    border: 1px solid #e4ebe5;
+    border-radius: 7px;
+
+    color: #313b32;
+
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+
+    line-height: 1.9;
+    letter-spacing: 0.15px;
+
+    outline: none;
+
+    resize: none;
+    overflow: hidden;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.landscape textarea[name="Tekst"]::placeholder {
+    color: #aeb8af;
+
+    opacity: 1;
+}
+
+.landscape textarea[name="Tekst"]:hover {
+    border-color: #cfdacf;
+}
+
+.landscape textarea[name="Tekst"]:focus {
+    background-color: #ffffff;
+
+    border-color: #859789;
+
+    box-shadow:
+        0 0 0 3px rgba(133, 151, 137, 0.10);
+}
+
+.landscape textarea[name="Tekst"]::selection {
+    background-color: #DCE6DE;
+
+    color: #263D2C;
+}
+
+
+
+.post-btn {
+    align-self: flex-end;
+
+    width: 110px;
+    height: 50px;
+
+    margin-top: 15px;
+    margin-right: 35px;
+    margin-bottom: 35px;
+
+    flex-shrink: 0;
+
+    background-color: #263D2C;
+
+    border: none;
+    border-radius: 7px;
+
+    color: #ffffff;
+
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 10px rgba(31, 41, 34, 0.15);
+
+    transition: all 0.2s ease;
+}
+
+.post-btn:hover {
+    background-color: #1C3022;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 14px rgba(31, 41, 34, 0.20);
+}
+
+.post-btn:active {
+    transform: translateY(0);
+
+    box-shadow:
+        0 2px 5px rgba(31, 41, 34, 0.15);
+}
+
+
+
+.landscape::-webkit-scrollbar,
+.portrait::-webkit-scrollbar,
+.panorama::-webkit-scrollbar,
+.boomerang::-webkit-scrollbar,
+.left::-webkit-scrollbar {
+    width: 7px;
+}
+
+.landscape::-webkit-scrollbar-track,
+.portrait::-webkit-scrollbar-track,
+.panorama::-webkit-scrollbar-track,
+.boomerang::-webkit-scrollbar-track,
+.left::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.landscape::-webkit-scrollbar-thumb,
+.portrait::-webkit-scrollbar-thumb,
+.panorama::-webkit-scrollbar-thumb,
+.boomerang::-webkit-scrollbar-thumb {
+    background-color: #c5d0c6;
+
+    border-radius: 10px;
+}
+
+.landscape::-webkit-scrollbar-thumb:hover,
+.portrait::-webkit-scrollbar-thumb:hover,
+.panorama::-webkit-scrollbar-thumb:hover,
+.boomerang::-webkit-scrollbar-thumb:hover {
+    background-color: #9eaea0;
 }

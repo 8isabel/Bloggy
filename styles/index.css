@@ -25,12 +25,9 @@ header {
 
     box-shadow: 0 10px 12px rgba(31, 41, 34, 0.2);
     position: relative;
-<<<<<<< HEAD
     z-index: 10;
-=======
     z-index: 2;
     height: 10vh;
->>>>>>> 92a7740d0bc19545fbe87fdf4608c8907c9a619b
 }
 
 
@@ -256,4 +253,12 @@ box-shadow: 0 0 24px rgba(31, 41, 34, 0.25);
     font-size: 16px;
     padding: 10px 15px;
     color: #f3f5f3;
+}
+
+.create-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
 }
