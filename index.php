@@ -85,6 +85,7 @@ require 'db/con.php';
                 <input type="text" id="name" required>
                 <label for="password">Password</label>
                 <input type="password" id="password" required>
+                <button id="registerButton">Register</button>
                 <button type="submit">Login</button>
             </form>
         </div>
