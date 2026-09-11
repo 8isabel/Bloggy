@@ -17,7 +17,7 @@ $author = trim($_POST['author'] ?? '');
 $category = trim($_POST['category'] ?? 'news');
 $content = trim($_POST['content'] ?? '');
 $layout = trim($_POST['layout'] ?? 'landscape');
-$user_id = $_SESSION['user_id'];
+$user_id = (int)$_SESSION['user_id'];
 
 if ($title === '' || $content === '') {
     echo "Titel en tekst zijn verplicht. <a href='add.php'>Terug</a>";
@@ -35,10 +35,14 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         mkdir($uploadDir, 0777, true);
     }
     $ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-    $filename = uniqid("blog_", true) . "." . strtolower($ext);
-    $target = $uploadDir . $filename;
-    if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-        $image = "uploads/" . $filename;
+    $allowed = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+    $ext = strtolower($ext);
+    if (in_array($ext, $allowed, true)) {
+        $filename = uniqid("blog_", true) . "." . $ext;
+        $target = $uploadDir . $filename;
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+            $image = "uploads/" . $filename;
+        }
     }
 }
 
@@ -46,18 +50,23 @@ try {
     $query = "INSERT INTO blogs (user_id, title, author, category, content, layout, image)
               VALUES (:user_id, :title, :author, :category, :content, :layout, :image)";
     $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':user_id', $user_id);
-    $stmt->bindParam(':title', $title);
-    $stmt->bindParam(':author', $author);
-    $stmt->bindParam(':category', $category);
-    $stmt->bindParam(':content', $content);
-    $stmt->bindParam(':layout', $layout);
-    $stmt->bindParam(':image', $image);
+    $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->bindValue(':title', $title);
+    $stmt->bindValue(':author', $author);
+    $stmt->bindValue(':category', $category);
+    $stmt->bindValue(':content', $content);
+    $stmt->bindValue(':layout', $layout);
+    $stmt->bindValue(':image', $image);
     $stmt->execute();
 
-    $newId = $pdo->lastInsertId();
+    $newId = (int)$pdo->lastInsertId();
+    if ($newId < 1) {
+        echo "Blog kon niet worden opgeslagen in de database. <a href='add.php'>Terug</a>";
+        exit;
+    }
+
     header("Location: view.php?id=" . $newId);
     exit;
 } catch (PDOException $e) {
-    echo $e->getMessage();
+    echo "Opslaan mislukt: " . htmlspecialchars($e->getMessage()) . " <a href='add.php'>Terug</a>";
 }
