@@ -3,93 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="styles/add.css">
-    <script src="scripts/add.js" defer></script>
     <link rel="stylesheet" href="styles/index.css">
+
+    <script src="scripts/add.js" defer></script>
+    <script src="scripts/login.js" defer></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/index.css">
-    <script src="scripts/add.js" defer></script>
-    <script src="scripts/login.js" defer></script>
+
     <title>Bloggy</title>
 </head>
+
 <body>
+
 <header>
-        <h1>Bloggy</h1>
-        <a id="home" href="index.php">Home</a>
-        <a id="create" href="add.html">+</a>
-        <button type="button" id="login">Login</button>
-    </header>
-    <main>
-        <div class="left">
-            <h3>Edit</h3>
-            <div class="edit">
-                <button id="landscape" class="active">Landscape</button>
-                <button id="portrait">Portrait</button>
-                <button id="panorama">Panorama</button>
-                <button id="boomerang">Boomerang</button>
-            </div>
-            <div class="settings">
-                <h3>Settings</h3>
-                                        <div class="group">
-                    <label for="sort">Sort</label>
-                    <select name="sort" id="sort">
+    <h1>Bloggy</h1>
+    <a id="home" href="index.php">Home</a>
+    <a id="create" href="add.html">+</a>
+    <button type="button" id="login">Login</button>
+</header>
+
+<main>
+
+    <div class="left">
+        <h3>Edit</h3>
+
+        <div class="edit">
+            <button id="landscape" class="active">Landscape</button>
+            <button id="portrait">Portrait</button>
+            <button id="panorama">Panorama</button>
+            <button id="boomerang">Boomerang</button>
+        </div>
+
+        <div class="settings">
+            <h3>Settings</h3>
+
+            <div class="group">
+                <label for="sort">Sort</label>
+
+                <select name="sort" id="sort">
                     <option value="scary">Scary</option>
                     <option value="news">News</option>
                     <option value="fun">Fun</option>
                 </select>
-                <label for="Author">Autheur</label>
-                        <input type="text" name="author">
-                </div>
+
+                <label for="author">Auteur</label>
+                <input type="text" name="author" id="author">
             </div>
         </div>
-        <div class="blog">
-            <div class="right">
-                <div class="landscape">
-                    <h4>Landscape Preview</h4>
-                    <div class="create-form">
-                        <div class="group"> 
-                        <label for="title">Titel</label>
-                        <input name="title" type="text">
-                        </div>
-                <input type="file">
-                <div class="group">
-                        <label for="text">Tekst</label>
-                        <textarea name="Tekst" type="text"></textarea>
-                    </div>
-                    <input type="file">
-                    </div>
-
-                    
-                </div>
-                <div class="portrait hidden">
-                    <h4>Portrait Preview</h4>
-                </div>
-                <div class="panorama hidden">
-                    <h4>Panorama Preview</h4>
-                </div>
-                <div class="boomerang hidden">
-                    <h4>Boomerang Preview</h4>
-                </div>
-            </div>
-        </div>
-        <button class="post-btn" id="post">Post</button>
-    </main>
-
-    <div id="loginModal" class="login-modal" aria-hidden="true">
-        <div class="login-box" role="dialog" aria-labelledby="loginTitle">
-            <button type="button" class="login-close" id="loginClose" aria-label="Close">&times;</button>
-            <h2 id="loginTitle">Login</h2>
-            <form id="loginForm">
-                <label for="loginEmail">Email</label>
-                <input type="email" id="loginEmail" required>
-                <label for="loginPassword">Password</label>
-                <input type="password" id="loginPassword" required>
-                <button type="submit">Login</button>
-            </form>
-        </div>
-        
     </div>
+
+    <div class="blog">
+
+        <div class="right">
+
+            <div class="template landscape">
+                <h4>Landscape Preview</h4>
+
+                <div class="template-content">
+
+                    <div class="group">
+                        <label for="landscape-title">Titel</label>
+                        <input
+                            id="landscape-title"
+                            name="title"
+                            type="text"
+                            placeholder="Titel van je blog..."
+                        >
+                    </div>
+
+                    <div class="image-upload large">
+                        <input type="file" accept="image/*">
+                        <span>Foto toevoegen</span>
+                    </div>
+
+                    <div class="group">
+                        <label for="landscape-text">Tekst</label>
+                        <textarea
+                            id="landscape-text"
+                            name="text"
+                            placeholder="Schrijf hier je verhaal..."
+                        ></textarea>
+                    </div>
+
+                    <div class="image-upload medium">
+                        <input type="file" accept="image/*">
+                        <span>Extra foto toevoegen</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="template portrait hidden">
+                <h4>Portrait Preview</h4>
+
+                <div class="portrait-content">
+
+                    <div class="group">
+                        <label for="portrait-title">Titel</label>
+                        <input
+                            id="portrait-title"
+                            name="portrait-title"
+                            type="text"
+                            placeholder="Titel van je blog..."
+                        >
+                    </div>
+
+                    <div class="image-upload portrait-image">
+                        <input type="file" accept="image/*">
+                        <span>Verticale foto toevoegen</span>
+                    </div>
+
+                    <div class="text-box">
+                        <label for="portrait-intro">Intro</label>
+                        <textarea
+                            id="portrait-intro"
+                            name="portrait-intro"
+                            placeholder="Begin je verhaal..."
+                        ></textarea>
+                    </div>
+
+                    <div class="image-row">
+
+                        <div class="image-upload small">
+                            <input type="file" accept="image/*">
+                            <span>Foto</span>
+                        </div>
+
+                        <div class="image-upload small">
+                            <input type="file" accept="image/*">
+                            <span>Foto</span>
+                        </div>
+
+                    </div>
+
+                    <div class="text-box">
+                        <label for="portrait-text">Verhaal</label>
+                        <textarea
+                            id="portrait-text"
+                            name="portrait-text"
+                            placeholder="Schrijf verder..."
+                        ></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="template panorama hidden">
+                <h4>Panorama Preview</h4>
+
+                <div class="panorama-content">
+
+                    <div class="group">
+                        <label for="panorama-title">Titel</label>
+                        <input
+                            id="panorama-title"
+                            name="panorama-title"
+                            type="text"
+                            placeholder="Titel van je blog..."
+                        >
+                    </div>
+
+                    <div class="image-upload panorama-image">
+                        <input type="file" accept="image/*">
+                        <span>Panorama foto toevoegen</span>
+                    </div>
+
+                    <div class="panorama-text">
+
+                        <div class="text-box">
+                            <label for="panorama-text">Tekst</label>
+                            <textarea
+                                id="panorama-text"
+                                name="panorama-text"
+                                placeholder="Schrijf je verhaal..."
+                            ></textarea>
+                        </div>
+
+                        <div class="text-box">
+                            <label for="panorama-extra">Extra tekst</label>
+                            <textarea
+                                id="panorama-extra"
+                                name="panorama-extra"
+                                placeholder="Voeg nog wat informatie toe..."
+                            ></textarea>
+                        </div>
+
+                    </div>
+
+                    <div class="image-upload panorama-image second">
+                        <input type="file" accept="image/*">
+                        <span>Extra panorama foto</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="template boomerang hidden">
+                <h4>Boomerang Preview</h4>
+
+                <div class="boomerang-content">
+
+                    <div class="group">
+                        <label for="boomerang-title">Titel</label>
+                        <input
+                            id="boomerang-title"
+                            name="boomerang-title"
+                            type="text"
+                            placeholder="Titel van je blog..."
+                        >
+                    </div>
+
+                    <div class="boomerang-block">
+
+                        <div class="boomerang-image image-upload">
+                            <input type="file" accept="image/*">
+                            <span>Foto toevoegen</span>
+                        </div>
+
+                        <div class="text-box">
+                            <label for="boomerang-text-1">Tekst</label>
+                            <textarea
+                                id="boomerang-text-1"
+                                name="boomerang-text-1"
+                                placeholder="Vertel iets over deze foto..."
+                            ></textarea>
+                        </div>
+
+                    </div>
+
+                    <div class="boomerang-block reverse">
+
+                        <div class="text-box">
+                            <label for="boomerang-text-2">Tekst</label>
+                            <textarea
+                                id="boomerang-text-2"
+                                name="boomerang-text-2"
+                                placeholder="Vertel verder..."
+                            ></textarea>
+                        </div>
+
+                        <div class="boomerang-image image-upload">
+                            <input type="file" accept="image/*">
+                            <span>Foto toevoegen</span>
+                        </div>
+
+                    </div>
+
+                    <div class="image-upload boomerang-last">
+                        <input type="file" accept="image/*">
+                        <span>Laatste foto toevoegen</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <button class="post-btn" id="post">Post</button>
+
+</main>
+
+<div id="loginModal" class="login-modal" aria-hidden="true">
+
+    <div class="login-box" role="dialog" aria-labelledby="loginTitle">
+
+        <button
+            type="button"
+            class="login-close"
+            id="loginClose"
+            aria-label="Close"
+        >
+            &times;
+        </button>
+
+        <h2 id="loginTitle">Login</h2>
+
+        <form id="loginForm">
+
+            <label for="loginEmail">Email</label>
+            <input
+                type="email"
+                id="loginEmail"
+                required
+            >
+
+            <label for="loginPassword">Password</label>
+            <input
+                type="password"
+                id="loginPassword"
+                required
+            >
+
+            <button type="submit">Login</button>
+
+        </form>
+
+    </div>
+
+</div>
+
 </body>
 </html>

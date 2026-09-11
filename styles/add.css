@@ -18,7 +18,6 @@ body {
     color: #263D2C;
 }
 
-
 main {
     display: flex;
 
@@ -29,7 +28,6 @@ main {
 
     background-color: #F3F5F3;
 }
-
 
 .left {
     width: 15%;
@@ -46,7 +44,6 @@ main {
     overflow-y: auto;
     overflow-x: hidden;
 }
-
 
 .edit {
     display: flex;
@@ -98,7 +95,6 @@ main {
 
     box-shadow: 0 2px 5px rgba(31, 41, 34, 0.15);
 }
-
 
 .settings {
     margin-top: 35px;
@@ -177,7 +173,6 @@ main {
     display: none;
 }
 
-
 .blog {
     flex: 1;
 
@@ -205,18 +200,13 @@ main {
     flex-direction: column;
 }
 
-
-.landscape,
-.portrait,
-.panorama,
-.boomerang {
+.template {
     width: 100%;
     max-width: 900px;
 
     height: calc(100% - 70px);
 
     margin: 0 auto;
-
     padding: 45px 55px;
 
     background-color: #ffffff;
@@ -231,11 +221,7 @@ main {
     overflow-x: hidden;
 }
 
-
-.landscape h4,
-.portrait h4,
-.panorama h4,
-.boomerang h4 {
+.template h4 {
     margin: 0 0 25px;
 
     color: #859789;
@@ -247,38 +233,36 @@ main {
     letter-spacing: 2px;
 }
 
-.create-form {
+.template-content,
+.portrait-content,
+.panorama-content,
+.boomerang-content {
+    width: 100%;
+}
+
+.template .group,
+.template .text-box {
     width: 100%;
 
     display: flex;
     flex-direction: column;
 
-    gap: 0;
+    margin-bottom: 25px;
 }
 
-.group {
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-}
-
-
-.landscape .create-form label {
-    margin-bottom: 6px;
+.template label {
+    margin-bottom: 7px;
 
     color: #718274;
 
     font-size: 13px;
-    font-weight: 400;
 }
 
-
-.landscape input[name="title"] {
+.template input[type="text"],
+.template textarea {
     width: 100%;
 
-    margin: 0 0 25px;
-    padding: 10px 12px;
+    padding: 12px 14px;
 
     background-color: #fbfcfb;
 
@@ -288,10 +272,6 @@ main {
     color: #263D2C;
 
     font-family: 'Oswald', sans-serif;
-    font-size: clamp(32px, 4vw, 54px);
-    font-weight: 600;
-
-    line-height: 1.08;
 
     outline: none;
 
@@ -301,15 +281,32 @@ main {
         box-shadow 0.2s ease;
 }
 
-.landscape input[name="title"]::placeholder {
+.template input[type="text"] {
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 1.08;
+}
+
+.template input[type="text"]::placeholder {
     color: #b8c1b9;
 }
 
-.landscape input[name="title"]:hover {
+.template textarea {
+    min-height: 180px;
+
+    font-size: 17px;
+    line-height: 1.7;
+
+    resize: vertical;
+}
+
+.template input[type="text"]:hover,
+.template textarea:hover {
     border-color: #cfdacf;
 }
 
-.landscape input[name="title"]:focus {
+.template input[type="text"]:focus,
+.template textarea:focus {
     background-color: #ffffff;
 
     border-color: #859789;
@@ -318,13 +315,14 @@ main {
         0 0 0 3px rgba(133, 151, 137, 0.10);
 }
 
+.image-upload {
+    position: relative;
 
-.landscape input[type="file"] {
     width: 100%;
-    height: 300px;
 
-    margin: 0 0 30px;
-    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     background-color: #F5F8F5;
 
@@ -333,115 +331,163 @@ main {
 
     color: #718274;
 
-    font-family: 'Oswald', sans-serif;
-    font-size: 14px;
-
-    cursor: pointer;
+    overflow: hidden;
 
     transition:
         background-color 0.2s ease,
         border-color 0.2s ease;
 }
 
-.landscape input[type="file"]:hover {
+.image-upload:hover {
     background-color: #F1F5F1;
 
     border-color: #859789;
 }
 
-.landscape input[type="file"]:focus {
-    border-color: #859789;
+.image-upload input[type="file"] {
+    position: absolute;
 
-    box-shadow:
-        0 0 0 3px rgba(133, 151, 137, 0.10);
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+
+    cursor: pointer;
 }
 
-.landscape input[type="file"]::file-selector-button {
-    margin-left: 20px;
+.image-upload span {
+    padding: 15px;
 
-    padding: 10px 18px;
+    font-size: 15px;
+
+    pointer-events: none;
+}
+
+.image-upload::before {
+    content: "+";
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 35px;
+    height: 35px;
+
+    margin-right: 10px;
 
     background-color: #859789;
 
-    border: none;
-    border-radius: 7px;
+    border-radius: 50%;
 
     color: white;
 
-    font-family: 'Oswald', sans-serif;
-    font-size: 14px;
-
-    cursor: pointer;
-
-    transition: background-color 0.2s ease;
+    font-size: 22px;
 }
 
-.landscape input[type="file"]::file-selector-button:hover {
-    background-color: #718274;
+.landscape .large {
+    height: 300px;
+
+    margin-bottom: 30px;
 }
 
+.landscape .medium {
+    height: 220px;
+}
 
-.landscape textarea[name="Tekst"] {
-    display: block;
+.portrait-content {
+    max-width: 650px;
 
-    width: 100%;
+    margin: 0 auto;
+}
+
+.portrait-image {
+    width: 70%;
+    height: 480px;
+
+    margin: 0 auto 30px;
+}
+
+.portrait .text-box textarea {
+    min-height: 150px;
+}
+
+.image-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+
+    margin: 25px 0;
+}
+
+.image-row .small {
+    height: 230px;
+}
+
+.panorama-image {
+    height: 280px;
+
+    margin-bottom: 30px;
+}
+
+.panorama-text {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+.panorama-text .text-box {
+    margin-bottom: 20px;
+}
+
+.panorama-text textarea {
+    min-height: 250px;
+}
+
+.panorama-image.second {
+    height: 230px;
+
+    margin-top: 10px;
+}
+
+.boomerang-block {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 30px;
+
+    align-items: stretch;
+
+    margin-bottom: 35px;
+}
+
+.boomerang-block .image-upload {
+    height: 300px;
+}
+
+.boomerang-block .text-box {
+    margin: 0;
+}
+
+.boomerang-block textarea {
+    height: 300px;
 
     min-height: 300px;
-
-    margin: 0;
-    padding: 14px;
-
-    background-color: #fbfcfb;
-
-    border: 1px solid #e4ebe5;
-    border-radius: 7px;
-
-    color: #313b32;
-
-    font-family: 'Oswald', sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-
-    line-height: 1.9;
-    letter-spacing: 0.15px;
-
-    outline: none;
-
-    resize: none;
-    overflow: hidden;
-
-    transition:
-        background-color 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
 }
 
-.landscape textarea[name="Tekst"]::placeholder {
-    color: #aeb8af;
-
-    opacity: 1;
+.boomerang-block.reverse {
+    grid-template-columns: 1fr 1fr;
 }
 
-.landscape textarea[name="Tekst"]:hover {
-    border-color: #cfdacf;
+.boomerang-last {
+    height: 250px;
 }
-
-.landscape textarea[name="Tekst"]:focus {
-    background-color: #ffffff;
-
-    border-color: #859789;
-
-    box-shadow:
-        0 0 0 3px rgba(133, 151, 137, 0.10);
-}
-
-.landscape textarea[name="Tekst"]::selection {
-    background-color: #DCE6DE;
-
-    color: #263D2C;
-}
-
-
 
 .post-btn {
     align-self: flex-end;
@@ -489,36 +535,118 @@ main {
         0 2px 5px rgba(31, 41, 34, 0.15);
 }
 
-
-
-.landscape::-webkit-scrollbar,
-.portrait::-webkit-scrollbar,
-.panorama::-webkit-scrollbar,
-.boomerang::-webkit-scrollbar,
+.template::-webkit-scrollbar,
 .left::-webkit-scrollbar {
     width: 7px;
 }
 
-.landscape::-webkit-scrollbar-track,
-.portrait::-webkit-scrollbar-track,
-.panorama::-webkit-scrollbar-track,
-.boomerang::-webkit-scrollbar-track,
+.template::-webkit-scrollbar-track,
 .left::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.landscape::-webkit-scrollbar-thumb,
-.portrait::-webkit-scrollbar-thumb,
-.panorama::-webkit-scrollbar-thumb,
-.boomerang::-webkit-scrollbar-thumb {
+.template::-webkit-scrollbar-thumb,
+.left::-webkit-scrollbar-thumb {
     background-color: #c5d0c6;
 
     border-radius: 10px;
 }
 
-.landscape::-webkit-scrollbar-thumb:hover,
-.portrait::-webkit-scrollbar-thumb:hover,
-.panorama::-webkit-scrollbar-thumb:hover,
-.boomerang::-webkit-scrollbar-thumb:hover {
+.template::-webkit-scrollbar-thumb:hover,
+.left::-webkit-scrollbar-thumb:hover {
     background-color: #9eaea0;
+}
+
+@media (max-width: 1100px) {
+    .left {
+        width: 20%;
+    }
+
+    .blog {
+        width: 80%;
+    }
+
+    .template {
+        padding: 35px 40px;
+    }
+}
+
+@media (max-width: 900px) {
+    .template {
+        padding: 30px;
+    }
+
+    .panorama-text {
+        grid-template-columns: 1fr;
+    }
+
+    .boomerang-block {
+        grid-template-columns: 1fr;
+    }
+
+    .boomerang-block.reverse {
+        grid-template-columns: 1fr;
+    }
+
+    .image-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .left {
+        width: 25%;
+        padding: 12px;
+    }
+
+    .blog {
+        width: 75%;
+        padding: 15px;
+    }
+
+    .template {
+        padding: 20px;
+    }
+
+    .template input[type="text"] {
+        font-size: 30px;
+    }
+
+    .portrait-image {
+        width: 100%;
+    }
+
+    .edit button {
+        width: 90%;
+
+        padding: 10px 5px;
+
+        font-size: 0.9rem;
+    }
+
+    .post-btn {
+        margin-right: 15px;
+    }
+}
+
+@media (max-width: 500px) {
+    .left {
+        width: 30%;
+    }
+
+    .blog {
+        width: 70%;
+    }
+
+    .template {
+        padding: 15px;
+    }
+
+    .template input[type="text"] {
+        font-size: 25px;
+    }
+
+    .image-row {
+        grid-template-columns: 1fr;
+    }
 }
