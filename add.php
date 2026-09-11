@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: index.php");
+    exit;
+}
+$username = $_SESSION['username'] ?? '';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +16,6 @@
     <link rel="stylesheet" href="styles/index.css">
 
     <script src="scripts/add.js" defer></script>
-    <script src="scripts/login.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,8 +29,9 @@
 <header>
     <h1>Bloggy</h1>
     <a id="home" href="index.php">Home</a>
-    <a id="create" href="add.html">+</a>
-    <button type="button" id="login">Login</button>
+    <a id="create" href="add.php">+</a>
+    <span id="userName"><?php echo htmlspecialchars($username); ?></span>
+    <a id="logout" href="login/logout.php">Logout</a>
 </header>
 
 <main>
@@ -51,7 +59,7 @@
                 </select>
 
                 <label for="author">Auteur</label>
-                <input type="text" name="author" id="author">
+                <input type="text" name="author" id="author" value="<?php echo htmlspecialchars($username); ?>">
             </div>
         </div>
     </div>
@@ -267,45 +275,6 @@
     <button class="post-btn" id="post">Post</button>
 
 </main>
-
-<div id="loginModal" class="login-modal" aria-hidden="true">
-
-    <div class="login-box" role="dialog" aria-labelledby="loginTitle">
-
-        <button
-            type="button"
-            class="login-close"
-            id="loginClose"
-            aria-label="Close"
-        >
-            &times;
-        </button>
-
-        <h2 id="loginTitle">Login</h2>
-
-        <form id="loginForm">
-
-            <label for="loginEmail">Email</label>
-            <input
-                type="email"
-                id="loginEmail"
-                required
-            >
-
-            <label for="loginPassword">Password</label>
-            <input
-                type="password"
-                id="loginPassword"
-                required
-            >
-
-            <button type="submit">Login</button>
-
-        </form>
-
-    </div>
-
-</div>
 
 </body>
 </html>

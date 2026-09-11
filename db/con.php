@@ -1,10 +1,13 @@
 <?php
 
-$db = __DIR__ . "/../login.sqlite";
+$host = "127.0.0.1";
+$dbname = "bloggy";
+$user = "root";
+$pass = "";
 
 try {
-    $pdo = new PDO("sqlite:" . $db);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die($e->getMessage());
+    die("Database verbinding mislukt: " . $e->getMessage());
 }

@@ -1,0 +1,24 @@
+CREATE DATABASE IF NOT EXISTS bloggy;
+USE bloggy;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS blogs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    title VARCHAR(200) NOT NULL,
+    author VARCHAR(100) NOT NULL,
+    category VARCHAR(50) NOT NULL,
+    content TEXT NOT NULL,
+    layout VARCHAR(50) NOT NULL,
+    image VARCHAR(255) DEFAULT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+INSERT INTO users (name, password) VALUES
+('admin', '$2y$12$NUKIgh7jKZdIkgBtH70jzuq.XqNTUK7BSsxU6vv.it21SoL4heaW6');
